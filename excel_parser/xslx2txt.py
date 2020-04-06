@@ -1,7 +1,18 @@
-import pandas ad pd
+import pandas as pd
 
-df=pd.read_excel("excel/export.csv", sheetname='OAV_60000')
+df=pd.read_csv("OAV_60000.csv")
 
-for index in range(len(df)):
-     with open(df["oggetto"][index] +  '.txt', 'w') as output:
-        output.write(df["descrizione"][index])
+df.insert(0, 'id', range(1, 1 + len(df)))
+
+print(df)
+
+i=0
+
+for index, row in df.iterrows():
+    if i > len(df):
+       break
+    else:
+       f = open(str(i)+'.txt', 'w')
+       f.write(str(row[1]))
+       f.close()
+       i+=1
