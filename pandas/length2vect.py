@@ -1,6 +1,10 @@
 import pandas as pd
 
-df = pd.read_excel ('excel/dataset_nuovo.xlsx', sheet_name='OAV_60000', skiprows='1')
+xls = pd.ExcelFile ('excel/dataset_nuovo.xlsx')
+
+df1 = pd.read_excel(xls, 'OAV_60000')
+df2 = pd.read_excel(xls, 'RA_30251')
+df3 = pd.read_excel(xls, 'A_19859')
 
 df2 = df[['label','lenght']]
 
